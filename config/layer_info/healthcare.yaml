@@ -1,0 +1,40 @@
+schema_version: 1
+layer_id: healthcare
+webapp_keys: [healthcare]
+source:
+  name: "OpenStreetMap + registro oficial nacional de establecimientos de salud"
+  provider: "OpenStreetMap contributors + national health registry"
+  url: "https://www.openstreetmap.org/"
+  license: "ODbL (OSM) + open government data"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat healthcare access methodology"
+specs:
+  spatial_resolution: "1 unit = 1 value (distance grid within polygons)"
+  temporal_coverage: "Registry snapshot, cache-first"
+  validation: "Conteos por categoría y sector, densidad por km² y distancia euclidiana sobre grilla regular intra-unidad"
+limitations:
+  - "Distancia euclidiana, no tiempo de viaje en red; no captura frecuencia ni capacidad de atención."
+methodology_doc: docs/healthcare_methodology.md
+color: sequential
+countries:
+  CL:
+    source:
+      name: "MINSAL/DEIS — Establecimientos de salud vigentes + OpenStreetMap"
+      provider: "Departamento de Estadísticas e Información de Salud (DEIS), datos.gob.cl"
+      url: "https://datos.gob.cl/dataset/establecimientos-de-salud-vigentes"
+      dataset_id: "establecimientos-de-salud-vigentes"
+      license: "Open government data (datos.gob.cl) + ODbL"
+    specs:
+      validation: "Registro oficial DEIS filtrado a RM y establecimientos vigentes; cruce con demography para razones habitantes/establecimiento"
+  ES:
+    source:
+      name: "OpenStreetMap — establecimientos de salud"
+      provider: "OpenStreetMap contributors"
+      license: "ODbL"
+    specs:
+      validation: "Conteos por categoría, densidad por km² y distancia euclidiana derivados sólo de OpenStreetMap; sin cruce con registro oficial ni clasificación por sector"
+    coverage_note: "En España la capa se construye únicamente con OpenStreetMap: no hay registro oficial nacional cableado y config/countries/es.yaml lo deshabilita de forma explícita. Por eso los conteos por sector (público/privado) se publican como 0 — indican que la clasificación por sector no está disponible, no que no existan hospitales públicos."
+    limitations:
+      - "Distancia euclidiana, no tiempo de viaje en red; no captura frecuencia ni capacidad de atención."
+      - "Sin registro oficial español: los conteos público/privado no están disponibles y se publican como 0."

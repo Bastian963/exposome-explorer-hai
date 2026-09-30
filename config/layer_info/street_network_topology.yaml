@@ -1,0 +1,34 @@
+schema_version: 1
+layer_id: street_network_topology
+webapp_keys: [street_network_topology]
+source:
+  name: "Frozen OpenStreetMap street network"
+  provider: "OpenStreetMap contributors; pyosmium; OSMnx; NetworkX"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL); derived indicators"
+citation:
+  authors: "Coutrot et al."
+  year: 2022
+  title: "Entropy of city street networks linked to future spatial navigation ability"
+  journal: "Nature 604, 104–110"
+  doi: "10.1038/s41586-022-04486-7"
+  doi_status: verified
+  paper: "Coutrot et al. (2022); implementación con OSMnx/pyosmium"
+  bibtex_key: coutrot2022entropy
+specs:
+  spatial_resolution: "Fuente vectorial sin píxel nativo; grilla analítica GeoJSON de 1 km cuando el bundle la publica, más resumen administrativo"
+  temporal_coverage: "Dated OpenStreetMap snapshot; cross-sectional, not annual"
+  validation: "IC95 bootstrap (200 remuestreos), ≥100 celdas válidas, cobertura por unidad administrativa ≥90% y sensibilidad 1 km versus 2 km (Spearman ≥0.75); conectividad fina retenida si falla estabilidad"
+limitations:
+  - "Mide morfología y conectividad potencial de la red, no viajes observados, veredas ni seguridad peatonal."
+  - "La completitud y el etiquetado de OpenStreetMap pueden variar entre ciudades y entre centro y periferia."
+  - "Es un snapshot fechado: no debe interpretarse como una serie anual ni como una exposición histórica individual."
+  - "La grilla publicada es un soporte analítico vectorial de 1 km, no la resolución de observación de OSM ni un raster nativo."
+  - "La conectividad del componente mayor se publica administrativamente cuando su versión local no supera la estabilidad entre ventanas."
+methodology_doc: docs/street_network_topology_methodology.md
+color: sequential
+studies:
+  santiago_communes:
+    specs:
+      temporal_coverage: "Snapshot local Geofabrik/OSM 2026-08-30"
+      validation: "Assessment v2: SNE, orden y densidad superan estabilidad 1 km/2 km y cobertura comunal; conectividad permanece administrativa por inestabilidad local de escala."

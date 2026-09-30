@@ -1,0 +1,25 @@
+schema_version: 1
+layer_id: air_quality_pm25
+webapp_keys: [pm25]
+source:
+  name: "ACAG (Atmospheric Composition Analysis Group)"
+  provider: "Washington University in St. Louis — van Donkelaar group"
+  url: "https://sites.wustl.edu/acag/datasets/surface-pm2-5/"
+  license: "Open (research use)"
+citation:
+  authors: "van Donkelaar, Aaron and Hammer, Melanie S. and others"
+  year: 2021
+  title: "Monthly Global Estimates of Fine Particulate Matter and Their Uncertainty"
+  journal: "Environmental Health Perspectives"
+  doi: "10.1289/EHP7394"
+  paper: "van Donkelaar et al. (2021) Environmental Health Perspectives"
+  bibtex_key: vandonkelaar2021
+specs:
+  spatial_resolution: "~1 km × 1 km"
+  temporal_coverage: "2015-2022 (annual + monthly)"
+  validation: "R² > 0.7 vs ground stations globally; higher in urban areas"
+limitations:
+  - "Producto satelital calibrado globalmente; el sesgo local a escala de comuna no está cuantificado contra estaciones SINCA."
+methodology_doc: docs/pm25_methodology.md
+color: sequential
+primary: true

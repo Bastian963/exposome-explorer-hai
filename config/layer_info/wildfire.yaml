@@ -1,0 +1,28 @@
+schema_version: 1
+layer_id: wildfire
+webapp_keys: [wildfire]
+source:
+  name: "MODIS Burned Area (MCD64A1) + NASA FIRMS active fire"
+  provider: "NASA LP DAAC / NASA FIRMS, via Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MCD64A1"
+  license: "Open (NASA data, research use)"
+citation:
+  authors: "Giglio, Louis and Boschetti, Luigi and Roy, David P. and Humber, Michael L. and Justice, Christopher O."
+  year: 2018
+  title: "The Collection 6 MODIS burned area mapping algorithm and product"
+  journal: "Remote Sensing of Environment"
+  doi: "10.1016/j.rse.2018.08.005"
+  paper: "Giglio et al. (2018) Remote Sensing of Environment; NASA FIRMS (MODIS + VIIRS)"
+  bibtex_key: giglio2018
+specs:
+  spatial_resolution: "500 m (burned area) / ~1 km (active fire)"
+  temporal_coverage: "2015-2024 (monthly burned area, daily active fire)"
+  validation: "Índice de exposición combina superficie quemada (MCD64A1) y actividad de fuego (FIRMS) por unidad espacial"
+limitations:
+  - "Exposición exploratoria: mide fuego en el territorio, no dosis de humo inhalada; el humo transportado se captura vía PM2.5."
+methodology_doc: docs/wildfire_methodology.md
+color: sequential
+countries:
+  CL:
+    specs:
+      validation: "Índice de exposición combina superficie quemada y actividad de fuego por comuna; temporadas catastróficas 2017, 2023 y 2024 visibles en la serie"

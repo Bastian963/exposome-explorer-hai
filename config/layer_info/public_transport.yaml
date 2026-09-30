@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: public_transport
+webapp_keys: []
+source:
+  name: "OpenStreetMap — paraderos de bus + estaciones de Metro"
+  provider: "OpenStreetMap contributors (osmnx)"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL), derived indicators"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat public transport accessibility methodology (OSM)"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "OSM snapshot, cache-first"
+  validation: "Contrastado con red de referencia: 7 líneas de Metro / 137 estaciones (2024) y ~11,815 paraderos RED"
+limitations:
+  - "Mide disponibilidad física (conteo, densidad, distancia), no frecuencia, confiabilidad ni tarifa."
+methodology_doc: docs/public_transport_methodology.md
+color: sequential_inv

@@ -1,0 +1,25 @@
+schema_version: 1
+layer_id: walkability
+webapp_keys: [walkability]
+source:
+  name: "OpenStreetMap street network (osmnx)"
+  provider: "OpenStreetMap contributors"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL), derived indicators"
+citation:
+  authors: "Ewing, Reid and Cervero, Robert"
+  year: 2010
+  title: "Travel and the Built Environment: A Meta-Analysis"
+  journal: "Journal of the American Planning Association"
+  doi: "10.1080/01944361003766766"
+  paper: "Ewing & Cervero (2010) JAPA meta-analysis (reference framework)"
+  bibtex_key: ewing2010
+specs:
+  spatial_resolution: "1 commune = 1 value (street-network metrics)"
+  temporal_coverage: "OSM snapshot, cache-first"
+  validation: "Densidad de intersecciones, largo de cuadra y circuity dentro de rangos urbanos de referencia (100-200 int/km²; 100-150 m; 1.0-1.2 grid)"
+limitations:
+  - "Mide configuración física de la red peatonal, no viajes a pie observados ni percepción de caminabilidad."
+  - "Cobertura OSM madura en el núcleo urbano y más rala en comunas periurbanas."
+methodology_doc: docs/walkability_methodology.md
+color: sequential_inv

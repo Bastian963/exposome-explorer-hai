@@ -1,0 +1,31 @@
+schema_version: 1
+layer_id: surface_water
+webapp_keys: [surface_water, surface_water_total, surface_water_permanent, surface_water_seasonal]
+source:
+  name: "JRC Global Surface Water — Yearly History"
+  provider: "European Commission Joint Research Centre / Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/JRC_GSW1_4_YearlyHistory"
+  dataset_id: "JRC/GSW1_4/YearlyHistory (1984–2015) + GSW1_5/YearlyHistory_2016_2021 + GSW1_5/YearlyHistory_2022_2024, waterClass"
+  license: "Copernicus Programme: free, full and open access; attribution EC JRC/Google required"
+citation:
+  authors: "Pekel, Jean-Francois and others"
+  year: 2016
+  title: "High-resolution mapping of global surface water and its long-term changes"
+  journal: "Nature"
+  doi: "10.1038/nature20584"
+  paper: "Pekel et al. (2016) Nature"
+  bibtex_key: pekel2016
+specs:
+  spatial_resolution: "30 m nativos verificables; COG derivado conserva exactamente la grilla waterClass"
+  temporal_coverage: "Anual 1984–2024; cada año usa un activo distinto (v1.4: 1984–2021, v1.5: 2022–2024)"
+  validation: "Clases 1/2/3, NoData 0/255 y reconciliación total = permanente + estacional; el COG codifica presencia por píxel como 0/100 y el resumen por unidad como porcentaje; manifiesto v3 exige COG anual por métrica."
+limitations:
+  - "Mide agua superficial observada por Landsat, no calidad, profundidad, acceso ni exposición individual."
+  - "El cambio v1.4→v1.5 usa Landsat Collection 2 y puede introducir desplazamientos residuales; se revisa explícitamente el empalme 2021–2022."
+studies:
+  santiago_communes:
+    specs:
+      temporal_coverage: "2016–2024 anual publicado: primera ventana continua con ≥80% de área JRC observada en cada una de las 52 comunas; 1985–2015 se excluyen por cobertura insuficiente, no se imputan como 0%."
+    coverage_note: "Sondeo JRC 1985–2024, umbral 80% por comuna-año; reporte local coverage_summary.json."
+methodology_doc: docs/surface_water_methodology.md
+color: sequential

@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: air_quality
+webapp_keys: []
+source:
+  name: "CAMS global reanalysis + Open-Meteo Air Quality API (legacy)"
+  provider: "Copernicus Atmosphere Monitoring Service via Open-Meteo"
+  url: "https://open-meteo.com/en/docs/air-quality-api"
+  license: "Copernicus Open Access / Open-Meteo terms"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat air quality legacy methodology (CAMS ~11 km)"
+specs:
+  spatial_resolution: "~11 km (CAMS cells)"
+  temporal_coverage: "2015-2024 (daily, aggregated annual)"
+  validation: "Capa legacy conservada para continuidad; superada por air_quality_pm25 (ACAG ~1 km) y air_quality_satellite (TROPOMI NO2)"
+limitations:
+  - "Resolución ~11 km insuficiente para gradientes intra-urbanos; usar las capas satelitales de mayor resolución para análisis."
+methodology_doc: docs/air_quality_legacy_methodology.md
+color: sequential

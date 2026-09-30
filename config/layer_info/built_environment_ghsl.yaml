@@ -1,0 +1,27 @@
+schema_version: 1
+layer_id: built_environment_ghsl
+webapp_keys: [built_environment]
+source:
+  name: "Global Human Settlement Layer — P2023A"
+  provider: "European Commission, Joint Research Centre"
+  url: "https://human-settlement.emergency.copernicus.eu/datasets.php"
+  dataset_id: "GHS-BUILT-S E2020, GHS-BUILT-V E2020, GHS-BUILT-H ANBH E2018 (P2023A)"
+  license: "European Commission reuse authorised with JRC acknowledgement"
+citation:
+  authors: "Pesaresi, Martino and Politis, Panagiotis and others"
+  year: 2024
+  title: "Advances on the Global Human Settlement Layer by Joint Assessment of Earth Observation and Population Survey Data"
+  journal: "International Journal of Digital Earth"
+  doi: "10.1080/17538947.2024.2390454"
+  paper: "Pesaresi et al. (2024) International Journal of Digital Earth"
+  bibtex_key: pesaresi2024
+specs:
+  spatial_resolution: "100 m nativos; GEMMA exige un COG verificable por métrica"
+  temporal_coverage: "Productos publicados: superficie y volumen 2020; altura neta media ANBH 2018. Son snapshots, no una serie anual."
+  validation: "Cada ciudad exige tres TIFF sobre la grilla World Mollweide nativa de 100 m, resumen zonal calculado desde esos mismos píxeles, manifest v3, auditoría espacial estricta y control visual. Santiago y Bogotá conservan el piloto histórico como comparador de rangos."
+limitations:
+  - "Si falta un COG nativo verificable, GEMMA deja la métrica no disponible: nunca sustituye el píxel GHSL por un mapa administrativo."
+  - "La altura usa específicamente ANBH 2018 (altura neta media); AGBH es otro producto y no es intercambiable."
+  - "Superficie, volumen y altura construida pueden ser fuertemente colineales entre sí y con verde, transporte y servicios urbanos."
+methodology_doc: docs/built_environment_ghsl_methodology.md
+color: sequential

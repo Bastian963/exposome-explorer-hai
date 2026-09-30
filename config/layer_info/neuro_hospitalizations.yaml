@@ -1,0 +1,20 @@
+schema_version: 1
+layer_id: neuro_hospitalizations
+webapp_keys: []
+source:
+  name: "DEIS MINSAL — egresos hospitalarios por causa neurológica"
+  provider: "Departamento de Estadísticas e Información de Salud (DEIS), MINSAL Chile"
+  url: "https://deis.minsal.cl/"
+  license: "Open government data (Chile)"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat neuro outcomes methodology (DEIS egresos)"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "2011–2020 completo; annual-v2 usa 2015–2019 como ventana primaria pre-COVID"
+  validation: "Tasas comunales con denominadores censales; ver compuerta estadística en la metodología"
+coverage_note: "Resultado ecológico separado del exposoma y excluido del EBI; v1 es legacy/no aceptada y annual-v2 es longitudinal"
+limitations:
+  - "Resultado ecológico: no es estimación causal ni de riesgo individual."
+methodology_doc: docs/neuro_outcomes_methodology.md
+color: sequential

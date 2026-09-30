@@ -1,0 +1,44 @@
+schema_version: 1
+layer_id: climate_lst_ecostress
+# No palette key yet: the webapp has no LST card, and this layer has not been
+# run for any study.  Aliases are added when the exposome cards are created,
+# never before -- validate_webapp_info.py rejects keys absent from palette.json.
+webapp_keys: []
+source:
+  name: "ECOSTRESS Tiled Land Surface Temperature and Emissivity Instantaneous L2 Global 70 m V002"
+  provider: "NASA / JPL — Land Processes DAAC (LP DAAC)"
+  url: "https://www.earthdata.nasa.gov/data/catalog/lpcloud-eco-l2t-lste-002"
+  dataset_id: "ECO_L2T_LSTE v002 (doi:10.5067/ECOSTRESS/ECO_L2T_LSTE.002)"
+  license: "Openly shared without restriction, per the EOSDIS Data Use and Citation Guidance"
+citation:
+  authors: "Hulley, Glynn C. and Göttsche, Frank M. and Rivera, Gerardo and Hook, Simon J. and Freepartner, Robert J. and Martin, Maria Anna and Cawse-Nicholson, Kerry and Johnson, William R."
+  year: 2022
+  title: "Validation and Quality Assessment of the ECOSTRESS Level-2 Land Surface Temperature and Emissivity Product"
+  journal: "IEEE Transactions on Geoscience and Remote Sensing"
+  doi: "10.1109/TGRS.2021.3079879"
+  doi_status: verified
+  paper: "Hulley et al. (2022) IEEE Transactions on Geoscience and Remote Sensing 60, 1-23"
+  bibtex_key: hulley2022ecostress
+specs:
+  spatial_resolution: "70 m × 70 m"
+  temporal_coverage: "2018-07-09 al presente; instantáneo, revisita 1-5 días según latitud"
+  validation: "RMSE 1,07 K, MAE 0,40 K y R² > 0,988 contra estaciones terrestres en 14 sitios globales (1.139 observaciones de cielo despejado, ago-2018 a mar-2020; Hulley et al. 2022)"
+coverage_note: >-
+  Producto instantáneo y solo de cielo despejado: cada píxel resume las pasadas
+  válidas del período, no una serie continua. La órbita precesante de la
+  Estación Espacial Internacional hace que las adquisiciones caigan a horas
+  solares locales variables, lo que permite caracterizar el ciclo diurno —
+  ventaja que ningún sensor heliosincrónico ofrece — pero también implica que
+  el número de observaciones por píxel varía en el espacio y entre años. La
+  banda de conteo de observaciones se publica junto a las temperaturas para que
+  esa desigualdad sea auditable.
+limitations:
+  - "Mide temperatura radiativa de superficie (piel), no temperatura del aire a 2 m. No sustituye a la capa de calor basada en ERA5-Land: son cantidades físicas distintas y sobre superficie construida difieren varios kelvin durante el día."
+  - "Solo cielo despejado. En ciudades con nubosidad persistente el número de adquisiciones utilizables puede caer a un dígito por año, lo que puede impedir publicar una serie anual."
+  - "El proveedor documenta huecos observacionales permanentes entre 2018 y 2023 por fallas de la unidad de almacenamiento masivo, además de bandeo en la banda 4 (feb-2020) y operación en modo TES de 3 bandas entre may-2019 y abr-2023."
+  - "Obstrucciones de los paneles solares de la Estación Espacial pueden afectar la calidad; el campo de metadatos que las marca fue poblado de forma poco confiable antes de octubre de 2024."
+  - "La validación de referencia reporta un sesgo frío por debajo de 295 K atribuido a calibración; el producto es más confiable en el rango cálido, que es el de interés para isla de calor."
+  - "La serie parte en 2019 (primer año completo) y por lo tanto es más corta que las series climáticas de 2015 en adelante; nunca debe rellenarse para igualarlas."
+methodology_doc: docs/lst_ecostress_methodology.md
+color: sequential
+primary: false

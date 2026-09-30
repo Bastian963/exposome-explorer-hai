@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: greenspace_cv
+webapp_keys: []
+source:
+  name: "Greenspace CV validation set (Esri World Imagery scenes + annotations)"
+  provider: "BrainLat exposome (validation asset)"
+  url: "(internal validation set, see methodology)"
+  license: "Esri World Imagery terms (validation-only use)"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat greenspace CV validation methodology"
+specs:
+  spatial_resolution: "Scene-level annotation worklist (36 scenes)"
+  temporal_coverage: "2024-2026 snapshots"
+  validation: "Conjunto de validación para el complemento canopy-vs-Dynamic-World; anotación pendiente (0/36 escenas)"
+limitations:
+  - "Activo de validación, no una capa de exposición; no se integra al master."
+methodology_doc: docs/greenspace_cv_methodology.md
+color: sequential

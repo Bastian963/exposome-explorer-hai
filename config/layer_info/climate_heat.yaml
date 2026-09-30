@@ -1,0 +1,26 @@
+schema_version: 1
+layer_id: climate_heat
+webapp_keys: [heat]
+source:
+  name: "ERA5-Land Daily Aggregated — 2 m temperature and precipitation"
+  provider: "ECMWF / Copernicus Climate Change Service, via Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_DAILY_AGGR"
+  license: "Copernicus Open Access"
+citation:
+  authors: "Muñoz-Sabater, Joaquín and others"
+  year: 2021
+  title: "ERA5-Land: a state-of-the-art global reanalysis dataset for land applications"
+  journal: "Earth System Science Data"
+  doi: "10.5194/essd-13-4349-2021"
+  paper: "Muñoz-Sabater et al. (2021) Earth System Science Data"
+  bibtex_key: munozsabater2021
+specs:
+  spatial_resolution: "~11.132 km (0.1°), aggregated by polygon-intersection area"
+  temporal_coverage: "2024 master; annual products 2015-2024"
+  validation: "Native ERA5-Land pixel metrics aggregated by area-weighted intersection; zero-intersection land units may use the nearest observed pixel within one 11.132 km grid spacing, explicitly flagged"
+limitations:
+  - "La grilla de ~11 km no captura microclimas intra-administrativos ni una isla de calor física a escala de barrio."
+  - "La temperatura aparente usa la aproximación de Steadman con viento constante de 1 m/s."
+  - "Una unidad sin píxel intersectante puede heredar el píxel ERA5-Land observado más cercano dentro de 11.132 km; el archivo publica la bandera y la distancia de ese fallback."
+methodology_doc: docs/climate_heat_methodology.md
+color: sequential

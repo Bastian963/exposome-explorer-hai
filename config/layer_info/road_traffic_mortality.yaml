@@ -1,0 +1,21 @@
+schema_version: 1
+layer_id: road_traffic_mortality
+webapp_keys: [road_traffic_mortality]
+source:
+  name: "DNEC SAT Muertes Viales + estimaciones de población INDEC"
+  provider: "Dirección Nacional de Estadística Criminal (Argentina) + INDEC"
+  url: "https://www.argentina.gob.ar/seguridad/estadisticascriminales/bases-de-datos"
+  license: "Open government data (Argentina)"
+citation:
+  doi_status: not_assigned
+  paper: "DNEC, Sistema de Alerta Temprana (SAT) Muertes Viales 2017-2024; INDEC estimaciones de población"
+specs:
+  spatial_resolution: "1 unit = 1 value (comunas CABA + partidos AMBA)"
+  temporal_coverage: "2017-2024 (tasa acumulada + ventanas móviles de 3 años)"
+  validation: "Filtro tipo_persona = Víctima y conteo por víctima única; ventanas con menos de cinco eventos se publican suprimidas"
+coverage_note: "Resultado ecológico separado del exposoma y excluido del EBI; un cero es ausencia de registro SAT, no ausencia de mortalidad"
+limitations:
+  - "Comparador ecológico: no es estimación causal ni clínica."
+  - "Registros 'Departamento sin determinar' se excluyen del indicador."
+methodology_doc: docs/argentina_outcome_comparators_methodology.md
+color: sequential

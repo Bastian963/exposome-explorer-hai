@@ -1,0 +1,28 @@
+schema_version: 1
+layer_id: precipitation_spi
+webapp_keys: [precipitation_spi]
+source:
+  name: "CHIRPS Daily — Standardized Precipitation Index (SPI-3/6/12)"
+  provider: "UCSB Climate Hazards Center, via Google Earth Engine (derived)"
+  url: "https://www.chc.ucsb.edu/data/chirps"
+  license: "Open (research use)"
+citation:
+  authors: "Funk, Chris and others"
+  year: 2015
+  title: "The climate hazards infrared precipitation with stations — a new environmental record for monitoring extremes"
+  journal: "Scientific Data"
+  doi: "10.1038/sdata.2015.66"
+  paper: "Funk et al. (2015) Scientific Data 2:150066"
+  bibtex_key: funk2015
+specs:
+  spatial_resolution: "0.05° (~5.5 km)"
+  temporal_coverage: "2015-2024 (monthly SPI windows)"
+  validation: "SPI ajustado por unidad espacial sobre la serie CHIRPS (ventanas 3/6/12 meses)"
+limitations:
+  - "Hereda los sesgos de CHIRPS en zonas áridas; el SPI es relativo a la propia serie 2015-2024, no a la climatología de largo plazo."
+methodology_doc: docs/precipitation_methodology.md
+color: sequential
+countries:
+  CL:
+    specs:
+      validation: "SPI ajustado por comuna sobre la serie CHIRPS; captura la megasequía de Chile central"

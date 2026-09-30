@@ -1,0 +1,22 @@
+schema_version: 1
+layer_id: alan
+webapp_keys: [alan]
+source:
+  name: "VIIRS Day/Night Band (Suomi NPP + NOAA-20)"
+  provider: "NOAA / Colorado School of Mines (Earth Observation Group)"
+  url: "https://eogdata.mines.edu/products/vnl/"
+  license: "Open (research use)"
+citation:
+  authors: "Elvidge, Christopher D. and others"
+  year: 2021
+  title: "Annual Time Series of Global VIIRS Nighttime Lights Derived from Monthly Averages: 2012 to 2019"
+  journal: "Remote Sensing"
+  doi: "10.3390/rs13050922"
+  paper: "Elvidge et al. (2021) Remote Sensing"
+  bibtex_key: elvidge2021
+specs:
+  spatial_resolution: "~500 m"
+  temporal_coverage: "2012-present (annual + monthly)"
+  validation: "Cloud-free composite; lunar exclusion applied"
+methodology_doc: docs/alan_methodology.md
+color: sequential

@@ -1,0 +1,17 @@
+schema_version: 1
+layer_id: socioeconomic
+webapp_keys: [nse]
+source:
+  name: "CASEN 2022 + INE Censo 2017 socioeconomic index"
+  provider: "Ministerio de Desarrollo Social y Familia (CASEN) + INE Chile"
+  url: "https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen-2022"
+  license: "Public open data, source-specific terms"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat socioeconomic methodology"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "CASEN 2022; Censo 2017; supplemental 2023-2024"
+  validation: "Equal-weighted index and PCA index are consistent; external official validation remains a future non-blocking improvement"
+methodology_doc: docs/socioeconomic_methodology.md
+color: sequential_inv

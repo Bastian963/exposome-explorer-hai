@@ -1,0 +1,20 @@
+schema_version: 1
+layer_id: neuro_mortality
+webapp_keys: []
+source:
+  name: "DEIS MINSAL — defunciones por causa neurológica"
+  provider: "Departamento de Estadísticas e Información de Salud (DEIS), MINSAL Chile"
+  url: "https://deis.minsal.cl/"
+  license: "Open government data (Chile)"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat neuro outcomes methodology (DEIS defunciones 2018-2022)"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "2018-2022"
+  validation: "Tasas comunales ajustadas con denominadores censales; ver compuerta estadística en la metodología"
+coverage_note: "Resultado ecológico separado del exposoma y excluido del EBI"
+limitations:
+  - "Resultado ecológico: no es estimación causal ni de riesgo individual."
+methodology_doc: docs/neuro_outcomes_methodology.md
+color: sequential

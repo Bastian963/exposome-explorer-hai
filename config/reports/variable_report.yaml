@@ -1,0 +1,208 @@
+# English text for scripts/build_variable_report.py. {unit}/{units}/{n_units} are filled per study.
+# Precedence: studies.<id>.variables > variables > studies.<id>.layers > layers > config/layer_info.
+# Only wording lives here; sources, licences, DOIs and resolutions come from the
+# registry and the published manifest.
+layers:
+  air_quality_pm25:
+    method: "Annual-mean surface PM2.5 from the ACAG V6.GL.02 satellite-derived product, averaged over 2015-2022 on its native 0.01-degree grid; {unit} values are zonal (and population-weighted) means."
+    limitation: "Globally calibrated satellite product; its local bias at {unit} scale is not quantified against SINCA monitoring stations."
+  air_quality_satellite:
+    method: "Annual mean of the Sentinel-5P TROPOMI Level-3 tropospheric NO2 column (mol/m2) on the 1.1 km product grid, 2019-2024. A surface-concentration proxy is derived separately with the ERA5 boundary-layer height."
+    limitation: "The surface proxy relies on the ERA5 mixing-layer height; it is a physical estimate, not an in-situ measurement."
+  heavy_metals:
+    source_name: "RETC air emissions from point sources (heavy metals)"
+    provider: "Ministry of the Environment of Chile (RETC)"
+    paper: "Chilean Pollutant Release and Transfer Register (RETC), Ministry of the Environment"
+    method: "Annual air emissions of Pb, As, Cd, Mn and Hg reported by point sources in the national pollutant release register, normalised to kg per year, geocoded and summarised per {unit} (mass and a combined index)."
+    limitation: "The published register is already aggregated by source; no within-{unit} variation is inferred."
+  alan:
+    method: "Annual mean of monthly cloud-free VIIRS Day/Night Band radiance (nW/cm2/sr); pixels without a cloud-free observation are masked and negative radiance (sensor noise over dark areas) is clipped to zero."
+    limitation: "Upward-emitted radiance seen from orbit, not ground-level illuminance or indoor light exposure."
+  noise:
+    source_name: "Greater Santiago Urban Noise Map 2023 (road-traffic noise)"
+    provider: "Ministry of the Environment of Chile"
+    paper: "Ministry of the Environment of Chile, Greater Santiago Urban Noise Map 2023"
+    method: "Share of each {unit}'s population exposed above the official day-night and night-time thresholds, combined as the arithmetic mean of both percentages (the ranking metric)."
+    limitation: "Road-traffic noise only, as published per {unit}; no within-{unit} variation is inferred."
+  greenspace_multisource:
+    limitation: "The complementarity between Dynamic World and canopy height is not yet validated (0 of 36 control scenes annotated)."
+  greenspace_access:
+    source_name: "OpenStreetMap parks and recreation areas"
+    provider: "OpenStreetMap contributors (osmnx / Overpass)"
+    method: "Park and recreation polygons from OpenStreetMap; the union of polygons avoids double counting overlaps. Access is summarised per {unit} as the distance to the nearest park and the green area within 300, 500 and 1000 m."
+    limitation: "OpenStreetMap omits much informal greenery and street trees; see the multisource green layers for total cover."
+  surface_water:
+    years: "Annual 1984-2024 (JRC v1.4 to 2021, v1.5 from 2022)"
+    method: "Yearly JRC Global Surface Water class at 30 m (2024 shown): binary presence of surface water, as total, permanent or seasonal water. Commune percentages are derived summaries."
+    limitation: "Landsat-observed surface water only; not water quality, depth, access or individual exposure."
+  climate_heat:
+    method: "ERA5-Land daily 2 m temperature (about 11 km grid). Daily and annual metrics are computed per pixel first and only then summarised."
+    limitation: "The 11 km grid does not resolve intra-urban microclimates or a neighbourhood-scale heat island."
+  precipitation:
+    method: "CHIRPS daily precipitation (0.05 degree, about 5.6 km). Annual indicators are derived from the daily series."
+    limitation: "The 0.05-degree grid smooths orographic precipitation gradients."
+  wind:
+    method: "Hourly ERA5-Land 10 m U and V wind components; speed is computed hour by hour before averaging over the year."
+    limitation: "Exposure-modifying layer (ventilation), not a pollutant: model it jointly with PM2.5 and NO2."
+  precipitation_spi:
+    method: "Standardised Precipitation Index (3-, 6- and 12-month windows) computed on the aggregated CHIRPS series; the mean SPI-12 is shown."
+    limitation: "Relative to the 2015-2024 record, not to the long-term climatology; inherits CHIRPS biases in arid areas."
+  wildfire:
+    method: "MODIS MCD64A1 burned area (500 m; pixel area summed per {unit} and year, expressed as a percentage of the {unit}) plus NASA FIRMS active-fire detections."
+    limitation: "Exploratory exposure: measures fire in the territory, not the inhaled smoke dose; transported smoke enters through PM2.5."
+  built_environment_ghsl:
+    years: "Snapshots: built surface and volume 2020, building height 2018"
+    method: "Global Human Settlement Layer P2023A (JRC) on a 100 m grid: built-up surface and volume (2020) and average net building height (2018)."
+    limitation: "Snapshots, not an annual series; the 100 m grid does not resolve individual buildings."
+  street_network_topology:
+    method: "Street-network morphology from a frozen OpenStreetMap snapshot (OSMnx), evaluated on a stable 1 km analysis grid and summarised per {unit}: intersection density, orientation entropy of street segments (in nats), orientation order and the largest connected component."
+    limitation: "Measures morphology and potential connectivity, not observed trips, sidewalks or pedestrian safety."
+  walkability:
+    method: "The pedestrian street graph is clipped to each {unit} and projected to the local UTM zone; intersection density, street density, circuity and connectivity are combined into a walkability index."
+    limitation: "Physical configuration of the pedestrian network, not observed walking or perceived walkability."
+  public_transport:
+    source_name: "OpenStreetMap bus stops and Metro stations"
+    provider: "OpenStreetMap contributors (osmnx)"
+    method: "Bus stops and Metro or rail stations from OpenStreetMap, de-duplicated within 25 m; counts, density and distance-based coverage are combined into a transit index."
+    limitation: "Physical availability (count, density, distance), not frequency, reliability or fare."
+  healthcare:
+    source_name: "OpenStreetMap + national health-facility registry"
+    provider: "OpenStreetMap contributors; Chilean health-facility registry"
+    paper: "BrainLat healthcare access methodology"
+    method: "Facilities from both sources are harmonised into non-exclusive categories (hospital, clinic, primary care, pharmacy, laboratory, dental, mental health) and conflated across sources; access is the Euclidean distance to the nearest facility, evaluated on a stable 1 km grid."
+    limitation: "Euclidean distance, not network travel time; does not capture frequency or capacity."
+  social_infrastructure:
+    method: "OpenStreetMap social infrastructure (libraries, cultural, community, senior, sports and public-space venues) classified by declared rules; counts, density, category diversity and proximity are combined into an index."
+    limitation: "OpenStreetMap completeness varies by {unit}; peripheral {units} may be under-mapped."
+  food_environment:
+    method: "OpenStreetMap retail food outlets classified as healthy or unhealthy; densities per km2 and the modified Retail Food Environment Index (mRFEI, percentage of healthy outlets) are computed per {unit}."
+    limitation: "Point inventory from OpenStreetMap; completeness varies by {unit} and outlet quality is not assessed."
+  socioeconomic:
+    source_name: "CASEN 2022 + INE Census 2017 socioeconomic index"
+    provider: "Ministry of Social Development and Family (CASEN); National Statistics Institute (INE)"
+    paper: "BrainLat socioeconomic methodology (CASEN 2022, INE Census 2017)"
+    method: "Equal-weight mean of six z-scored components (household income, schooling, multidimensional poverty, income poverty, deficient housing, overcrowding) from CASEN 2022 and Census 2017; a PCA version and quintiles are also derived."
+    limitation: "Published at {unit} level; the index is relative to the {n_units} {units} of the study."
+  pobreza_sae:
+    source_name: "Commune poverty small-area estimates (SAE)"
+    provider: "Ministry of Social Development and Family (MDSF)"
+    years: "Income 2017, 2020, 2022, 2024; multidimensional 2017, 2022, 2024"
+    paper: "Ministry of Social Development and Family, small-area estimates of {unit} poverty"
+    limitation: "Small-area estimates carry sampling uncertainty (confidence intervals are in the master table)."
+  food_insecurity:
+    source_name: "CASEN small-area estimates of food insecurity (SAE)"
+    provider: "Ministry of Social Development and Family (MDSF) and FAO"
+    method: "Fay-Herriot area-level small-area estimates of moderate-and-severe food insecurity from CASEN, produced by the official agency with FAO (2022 shown); the layer ingests, validates and joins them to the study boundaries."
+    limitation: "Only 2020 and 2022 are published; estimates carry sampling uncertainty."
+  demography:
+    source_name: "INE Census 2017, microdata aggregated by city block"
+    provider: "National Statistics Institute of Chile (INE)"
+    paper: "INE Chile, 2017 Population and Housing Census"
+    method: "Population age structure from Census 2017 microdata aggregated from city blocks to {units}; the share aged 65 and over is shown."
+    limitation: "2017 base: denominators do not reflect later growth; an input layer (denominators, vulnerability), not an environmental exposure."
+variables:
+  pm25: {}
+  no2:
+    note: "The downloaded L3 grid is 1.1 km, but one TROPOMI observation covers roughly 3.5 x 5.5-7 km: the detail shows a tropospheric column in mol/m2, not a true 1.1 km measurement."
+  canopy:
+    method: "Canopy fraction aggregated to 30 m from the Meta/WRI 1 m canopy-height model (2020 snapshot)."
+  green:
+    method: "Percentage of green pixels per stable 1 km cell from Dynamic World V1 (10 m, sampled at 30 m): a pixel is green when its strongest green-class probability exceeds that of every non-green class in the seasonal composite."
+    note: "The 10 m source is not the map resolution: the indicator is a percentage per 1 km cell."
+  surface_water_total: {}
+  surface_water_permanent: {}
+  surface_water_seasonal: {}
+  heat_summer_tmax:
+    method: "Mean of the daily maximum 2 m temperature in summer (ERA5-Land, about 11 km grid), computed per pixel."
+  heat_hot_days:
+    method: "Number of days per year above the hot-day temperature threshold (ERA5-Land, about 11 km grid), computed per pixel."
+  heat_tropical_nights:
+    method: "Number of nights per year with minimum temperature above 20 degrees C (ERA5-Land, about 11 km grid), computed per pixel."
+  heat_index:
+    method: "Composite of combined, z-scored ERA5-Land thermal metrics relative to the study."
+    note: "Each component keeps its own spatial support; the index does not inherit a single resolution."
+  rain_annual:
+    method: "Annual precipitation total from the daily CHIRPS series (0.05 degree, about 5.6 km)."
+  rain_dry_spell:
+    method: "Longest run of consecutive dry days per year from the daily CHIRPS series (0.05 degree, about 5.6 km)."
+  rain_heavy:
+    method: "Number of days per year with at least 10 mm of precipitation from the daily CHIRPS series (0.05 degree, about 5.6 km)."
+  rain_index:
+    method: "Composite of percentile ranks of combined CHIRPS water-extreme metrics."
+    note: "Each component keeps its own spatial support; the index does not inherit a single resolution."
+  wildfire:
+    note: "Each component keeps its own spatial support; the index does not inherit a single resolution."
+  street_intersection_density_km2:
+    note: "Density in a local 1 km window; source vector geometry is not converted into a false raster grid."
+  street_sne_nature_nats:
+    note: "Source vector geometry is not converted into a false raster grid."
+  street_orientation_order:
+    note: "Source vector geometry is not converted into a false raster grid."
+  street_orientation_entropy_nats:
+    method: "Shannon entropy (nats) of the orientation distribution of street segments, summarised per {unit}; higher values mean a more heterogeneous street orientation."
+  street_largest_component_pct:
+    method: "Percentage of the street network that belongs to its largest connected component, summarised per {unit} (a proxy for network fragmentation)."
+  healthcare:
+    note: "Source vector geometry is not converted into a false raster grid."
+  crime_violent:
+    source_name: "CEAD crime statistics (via bastianolea/delincuencia_chile)"
+    provider: "Centro de Estudios y Analisis del Delito (CEAD), Chile"
+    years: "See the socioeconomic methodology"
+    paper: "CEAD, Chile: recorded crime by {unit} (supplementary indicator of the socioeconomic layer)"
+    doi: ""
+    method: "CEAD crime counts per {unit} classified into violent categories and expressed per 100,000 inhabitants; a supplementary indicator that does not enter the NSE index."
+    limitation: "Recorded crime depends on reporting practices; supplementary, not part of the NSE index."
+  crime_property:
+    source_name: "CEAD crime statistics (via bastianolea/delincuencia_chile)"
+    provider: "Centro de Estudios y Analisis del Delito (CEAD), Chile"
+    years: "See the socioeconomic methodology"
+    paper: "CEAD, Chile: recorded crime by {unit} (supplementary indicator of the socioeconomic layer)"
+    doi: ""
+    method: "CEAD crime counts per {unit} classified into property categories and expressed per 100,000 inhabitants; a supplementary indicator that does not enter the NSE index."
+    limitation: "Recorded crime depends on reporting practices; supplementary, not part of the NSE index."
+studies:
+  santiago_communes:
+    bundle: webapp/public/data/v1/cl/santiago/santiago_communes
+    place: "Santiago"
+    scope: "52 communes of Greater Santiago"
+    unit: commune
+    units: communes
+    status: true   # docs/exposome_status.csv tracks the Santiago layers
+  hai_wards:
+    bundle: webapp/public/data/v1/tz/hai/hai_wards
+    place: "Hai District, Tanzania"
+    scope: "17 wards of Hai District, Kilimanjaro Region, northern Tanzania"
+    unit: ward
+    units: wards
+    status: false
+    layers:
+      greenspace_access: {provider: "OpenStreetMap contributors (frozen Geofabrik Tanzania extract)", years: "OpenStreetMap snapshot of 1 Sep 2026"}
+      walkability: {provider: "OpenStreetMap contributors (frozen Geofabrik Tanzania extract)", years: "OpenStreetMap snapshot of 1 Sep 2026"}
+      social_infrastructure: {provider: "OpenStreetMap contributors (frozen Geofabrik Tanzania extract)", years: "OpenStreetMap snapshot of 1 Sep 2026"}
+      food_environment: {provider: "OpenStreetMap contributors (frozen Geofabrik Tanzania extract)", years: "OpenStreetMap snapshot of 1 Sep 2026"}
+      healthcare:
+        source_name: "OpenStreetMap health facilities (Geofabrik Tanzania extract)"
+        provider: "OpenStreetMap contributors (frozen Geofabrik Tanzania extract)"
+        years: "OpenStreetMap snapshot of 1 Sep 2026"
+        paper: "BrainLat healthcare access methodology"
+        method: "Facilities from OpenStreetMap (no national registry is used for Tanzania) harmonised into non-exclusive categories (hospital, clinic, primary care, pharmacy, laboratory, dental, mental health); access is the Euclidean distance to the nearest facility, evaluated on a stable 1 km grid."
+# Titles for the appendix-C rows generated from the manifest's unavailable indicators.
+layer_titles:
+  precipitation_spi: "SPI drought index"
+  street_network_topology: "Street-network topology"
+  surface_water: "Surface water (JRC yearly history)"
+  noise: "Road-traffic noise (Chile)"
+  noise_spain: "Lden noise (Spain)"
+  heavy_metals: "Heavy-metals emissions (Chile, RETC)"
+  socioeconomic: "Socioeconomic index (Chile, CASEN/Census)"
+  food_insecurity: "Food insecurity (Chile, SAE)"
+  pobreza_sae: "Poverty small-area estimates (Chile)"
+  community_safety: "Property-crime subtypes (Argentina, DNEC)"
+  community_violence: "Violence subtypes (Argentina, SNIC)"
+  suicide_mortality: "Suicide mortality (Argentina)"
+  road_traffic_mortality: "Road-traffic mortality (Argentina)"
+  ebi: "Composite exposome index (EBI)"
+reason_text:
+  country_not_supported: "Country-specific layer (supported: {supported}); it is not applied to {place}."
+  not_enabled_by_study: "Not enabled in this study; it has not been run."
+  coming_soon: "Announced composite; not yet released."

@@ -1,0 +1,12 @@
+streamlit>=1.50
+streamlit-folium>=0.25
+folium>=0.19
+geopandas>=1.0
+rasterio>=1.4
+pyproj>=3.6
+shapely>=2.0
+pandas>=2.2
+numpy>=2.0
+matplotlib>=3.9
+pillow>=10.0
+pyyaml>=6.0

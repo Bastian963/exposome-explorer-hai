@@ -1,0 +1,17 @@
+schema_version: 1
+layer_id: greenspace_coverage
+webapp_keys: []
+source:
+  name: "Landsat 8/9 Collection 2 (NDVI/EVI)"
+  provider: "USGS, via Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/LANDSAT_LC08_C02_T1_L2"
+  license: "USGS Open (research use)"
+citation:
+  doi_status: not_assigned
+  paper: "USGS Landsat Collection 2 documentation"
+specs:
+  spatial_resolution: "30 m x 30 m"
+  temporal_coverage: "2013-present (16-day revisit)"
+  validation: "NDVI saturation capped at 0.999"
+methodology_doc: docs/greenspace_coverage_methodology.md
+color: sequential

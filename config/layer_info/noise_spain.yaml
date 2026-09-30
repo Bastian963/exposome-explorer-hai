@@ -1,0 +1,22 @@
+schema_version: 1
+layer_id: noise_spain
+webapp_keys: [noise_lden]
+source:
+  name: "SICA/MITECO — Mapas Estratégicos de Ruido de aglomeraciones, cuarta fase"
+  provider: "Sistema de Información sobre Contaminación Acústica (SICA), CEDEX/MITECO"
+  url: "https://sicaweb.cedex.es/datos-geoespaciales/4a-fase/"
+  license: "Metadatos XML SICA: sin limitaciones de acceso; no se aplican condiciones"
+citation:
+  doi_status: not_assigned
+  paper: "MITECO/CEDEX, Mapas Estratégicos de Ruido de aglomeraciones — cuarta fase (MER 2022)"
+specs:
+  spatial_resolution: "Bandas vectoriales Lden de 5 dB; GEMMA publica sólo resumen por unidad administrativa"
+  temporal_coverage: "Cuarta fase MER 2022"
+  validation: "Las releases completas verifican 16 GeoPackage con CRC ZIP, integridad SQLite y capa all-sources Lden; el piloto Barcelonès declara explícitamente su subconjunto validado e intersectante"
+coverage_note: "noise_has_modelled_ge55=0 y métricas nulas indican que la unidad no intersecta un contorno Lden >=55 dB(A); no indican ausencia de ruido. Barcelonès — piloto MER 2022 tiene cobertura parcial declarada."
+limitations:
+  - "Los mapas cubren aglomeraciones obligadas, no toda Cataluña ni todo el País Vasco."
+  - "La media usa puntos medios de bandas; >75 dB(A) se aproxima como 77,5 dB(A)."
+  - "Los conteos de población expuesta se conservan por aglomeración y no se redistribuyen artificialmente entre unidades administrativas."
+methodology_doc: docs/noise_spain_methodology.md
+color: sequential

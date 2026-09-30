@@ -1,0 +1,25 @@
+schema_version: 1
+layer_id: greenspace_multisource
+webapp_keys: [green, canopy]
+source:
+  name: "Dynamic World V1 (10 m) + Meta/WRI Canopy Height (1 m)"
+  provider: "Google/WRI Dynamic World and Meta/WRI global canopy height, via Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_DYNAMICWORLD_V1"
+  license: "CC-BY 4.0 (Dynamic World); open research use (Meta/WRI canopy)"
+citation:
+  authors: "Brown, Christopher F. and others"
+  year: 2022
+  title: "Dynamic World, Near real-time global 10 m land use land cover mapping"
+  journal: "Scientific Data"
+  doi: "10.1038/s41597-022-01307-4"
+  paper: "Brown et al. (2022) Scientific Data; Tolan et al. (2024) Remote Sensing of Environment"
+  bibtex_key: brown2022
+specs:
+  spatial_resolution: "10 m (cobertura verde) / 1 m agregado a >=30 m (dosel)"
+  temporal_coverage: "2015-present (Dynamic World); 2020 snapshot (canopy height)"
+  validation: "Dosel de 1 m recupera arbolado urbano que el argmax de 10 m y OSM omiten; complemento canopy-vs-DW montado pero aun sin validar (0/36 escenas anotadas)"
+limitations:
+  - "El complemento entre Dynamic World y canopy height no está validado aún: la anotación de las 36 escenas de control está pendiente (0/36)."
+  - "El argmax de 10 m asigna una sola clase por píxel, por lo que árboles de calle aislados no cuentan como verde en Dynamic World."
+methodology_doc: docs/greenspace_multisource_methodology.md
+color: sequential

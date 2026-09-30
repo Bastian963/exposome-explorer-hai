@@ -1,0 +1,17 @@
+schema_version: 1
+layer_id: ebi
+webapp_keys: [ebi]
+source:
+  name: "Computed (rank-percentile of 20 canonical indicators)"
+  provider: "BrainLat exposome (derived layer)"
+  url: "(derived layer, see methodology)"
+  license: "(derived)"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat exposome methodology (v1.2)"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "2024 cross-section"
+  validation: "Spearman with PM2.5 = 0.42 (p < 0.01)"
+methodology_doc: docs/cross_layer_analysis.md
+color: sequential

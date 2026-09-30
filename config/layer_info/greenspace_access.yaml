@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: greenspace_access
+webapp_keys: [greenspace_access]
+source:
+  name: "OpenStreetMap — parques y áreas de recreación"
+  provider: "OpenStreetMap contributors (osmnx / Overpass)"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL), derived indicators"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat greenspace access methodology (OSM)"
+specs:
+  spatial_resolution: "1 commune = 1 value (distance grid within polygons)"
+  temporal_coverage: "OSM snapshot, cache-first"
+  validation: "Unión de polígonos verdes proyectada al CRS métrico local evita doble conteo; cada polígono cuenta una sola vez vía punto representativo"
+limitations:
+  - "OSM omite gran parte del verde informal y el arbolado de calle; ver greenspace_multisource para cobertura total."
+methodology_doc: docs/greenspace_access_methodology.md
+color: sequential

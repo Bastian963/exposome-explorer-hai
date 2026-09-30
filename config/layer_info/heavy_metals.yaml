@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: heavy_metals
+webapp_keys: [heavy_metals]
+source:
+  name: "RETC MMA — Emisiones al aire de fuentes puntuales (metales pesados)"
+  provider: "Registro de Emisiones y Transferencias de Contaminantes (RETC), Ministerio del Medio Ambiente"
+  url: "https://retc.mma.gob.cl/"
+  dataset_id: "2733b0f0-428a-4594-afeb-17780c8d47c1"
+  license: "CC-BY"
+citation:
+  doi_status: not_assigned
+  paper: "Registro de Emisiones y Transferencias de Contaminantes (RETC), Ministerio del Medio Ambiente"
+specs:
+  spatial_resolution: "1 commune = 1 value (industrial point sources)"
+  temporal_coverage: "2015-2022 (mean annual emissions)"
+  validation: "Composite index over Pb, Mn, As, Cd, Hg air emissions from 5,253 declared point sources; emissions concentrate in industrial communes (Tiltil, Cerrillos)"
+coverage_note: "Reflects declared point-source air emissions of heavy metals, not ambient concentration; communes without declaring industry read near zero"
+methodology_doc: docs/heavy_metals_methodology.md
+color: sequential

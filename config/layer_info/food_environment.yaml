@@ -1,0 +1,24 @@
+schema_version: 1
+layer_id: food_environment
+webapp_keys: [food_environment]
+source:
+  name: "OpenStreetMap / Overpass — retail food outlets"
+  provider: "OpenStreetMap contributors"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL), derived indicators"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat food environment methodology (CDC mRFEI framework)"
+specs:
+  spatial_resolution: "1 unit = 1 value"
+  temporal_coverage: "OSM snapshot 2024-2025, cache-first"
+  validation: "Healthy-food access index combining healthy-outlet density and distance to nearest supermarket (CDC mRFEI framework)"
+coverage_note: "Index reflects healthy-food access, not the healthy-vs-unhealthy balance; OSM completeness for unhealthy outlets varies by country"
+methodology_doc: docs/food_environment_methodology.md
+color: sequential_inv
+countries:
+  CL:
+    specs:
+      spatial_resolution: "1 commune = 1 value"
+      validation: "Healthy-food access index from 596 mapped supermarkets plus ferias: combines healthy-outlet density and distance to nearest supermarket"
+    coverage_note: "Index reflects healthy-food access, NOT the healthy-vs-unhealthy balance: fast_food, convenience stores and greengrocers are structurally unmapped in OSM Chile (Overpass returns 0), so food_mrfei/food_swamp_ratio are degenerate and are not surfaced. See docs/food_environment_methodology.md (coverage_gap)"

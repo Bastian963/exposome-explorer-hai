@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: climate_openmeteo
+webapp_keys: []
+source:
+  name: "Open-Meteo Historical Weather API (annual climate metrics)"
+  provider: "Open-Meteo"
+  url: "https://open-meteo.com/en/docs/historical-weather-api"
+  license: "Open-Meteo terms of service"
+citation:
+  doi_status: not_assigned
+  paper: "Open-Meteo historical weather documentation"
+specs:
+  spatial_resolution: "~11 km per point; one representative point per commune"
+  temporal_coverage: "2024 daily archive"
+  validation: "Contraparte Open-Meteo de climate_heat; métricas om_* no redundantes (rango diurno, días de helada, grados-día)"
+limitations:
+  - "Un punto representativo por comuna: sin variación intra-comunal."
+methodology_doc: docs/climate_openmeteo_methodology.md
+color: sequential

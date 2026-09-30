@@ -1,0 +1,22 @@
+schema_version: 1
+layer_id: food_insecurity
+webapp_keys: [food_insecurity]
+source:
+  name: "CASEN — Estimación de áreas pequeñas (SAE), MDSF/FAO"
+  provider: "Ministerio de Desarrollo Social y Familia + FAO"
+  url: "https://observatorio.ministeriodesarrollosocial.gob.cl/inseguridad-alimentaria-2022"
+  license: "Open (official government publication)"
+citation:
+  year: 2024
+  title: "Estimation of the prevalence of moderate and severe food insecurity in Chilean municipalities using small area estimation methods"
+  journal: "FAO"
+  doi: "10.4060/cd1350en"
+  paper: "FAO (2024) Estimation of the prevalence of moderate and severe food insecurity in Chilean municipalities using small area estimation methods"
+  bibtex_key: fao2024foodinsecurity
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "CASEN 2020 and 2022 (only 2 years published)"
+  validation: "Fay-Herriot small-area estimation blending direct CASEN estimates with a synthetic model on administrative covariates; FIES scale fit with a Rasch model. All 52 RM communes covered in both years, no suppression."
+coverage_note: "Measures household food-insecurity experience (demand side), not retail supply -- complements rather than duplicates 'food_environment'. A minority of communes each year use a synthetic-only estimate (no direct CASEN contribution): see food_insec_sae_type_2022. See docs/food_insecurity_methodology.md."
+methodology_doc: docs/food_insecurity_methodology.md
+color: sequential

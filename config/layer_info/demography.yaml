@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: demography
+webapp_keys: []
+source:
+  name: "INE Censo 2017 — microdato agregado a manzana"
+  provider: "Instituto Nacional de Estadísticas de Chile (INE)"
+  url: "https://redatam-ine.ine.cl/"
+  license: "Open (official census microdata)"
+citation:
+  doi_status: not_assigned
+  paper: "INE Chile, Censo de Población y Vivienda 2017"
+specs:
+  spatial_resolution: "1 commune = 1 value (aggregated from city blocks)"
+  temporal_coverage: "Censo 2017"
+  validation: "Región 13 filtrada a nivel de manzana; nombres de comuna normalizados contra las geometrías del contrato espacial"
+limitations:
+  - "Base 2017: los denominadores no reflejan crecimiento posterior; capa insumo (denominadores y vulnerabilidad), no exposición ambiental."
+methodology_doc: docs/demography_methodology.md
+color: sequential

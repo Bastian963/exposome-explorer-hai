@@ -1,0 +1,24 @@
+schema_version: 1
+layer_id: air_quality_satellite
+webapp_keys: [no2]
+source:
+  name: "Sentinel-5P TROPOMI (NO2 tropospheric column)"
+  provider: "Copernicus / ESA, via Google Earth Engine"
+  url: "https://www.tropomi.eu/data-products/no2"
+  license: "Copernicus Open Access"
+citation:
+  authors: "van Geffen, Jos and others"
+  year: 2022
+  title: "Sentinel-5P TROPOMI NO2 retrieval: impact of version v2.2 improvements and comparisons with OMI and ground-based data"
+  journal: "Atmospheric Measurement Techniques"
+  doi: "10.5194/amt-15-2037-2022"
+  paper: "van Geffen et al. (2022) Atmospheric Measurement Techniques"
+  bibtex_key: vangeffen2022
+specs:
+  spatial_resolution: "7 km × 3.5 km"
+  temporal_coverage: "2018-present (daily)"
+  validation: "Bias < 30% in urban areas; saturation over hotspots"
+limitations:
+  - "La conversión de columna troposférica a concentración superficial usa la altura de capa de mezcla ERA5 (Plan A+); es una estimación física, no una medición in situ."
+methodology_doc: docs/plan_a_plus_methodology.md
+color: sequential

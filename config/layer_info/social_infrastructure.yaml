@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: social_infrastructure
+webapp_keys: [social_infrastructure]
+source:
+  name: "OpenStreetMap / Overpass social infrastructure inventory"
+  provider: "OpenStreetMap contributors"
+  url: "https://www.openstreetmap.org/"
+  license: "Open Database License (ODbL), derived indicators"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat social infrastructure methodology"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "OSM snapshot 2026, cache-first"
+  validation: "Curated civic-cultural categories with deduplication and commune-level access metrics; OSM completeness remains a documented limitation"
+limitations:
+  - "La completitud de OSM varía por comuna; comunas periféricas pueden estar sub-mapeadas."
+methodology_doc: docs/social_infrastructure_methodology.md
+color: sequential_inv

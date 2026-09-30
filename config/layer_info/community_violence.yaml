@@ -1,0 +1,21 @@
+schema_version: 1
+layer_id: community_violence
+webapp_keys: [community_violence]
+source:
+  name: "DNEC SNIC — departamentos, anual"
+  provider: "Dirección Nacional de Estadística Criminal (Argentina) + INDEC"
+  url: "https://www.argentina.gob.ar/seguridad/estadisticascriminales/bases-de-datos"
+  license: "Open government data (Argentina)"
+citation:
+  doi_status: not_assigned
+  paper: "DNEC, Sistema Nacional de Información Criminal (SNIC), departamentos anual 2000-2025; INDEC estimaciones de población"
+specs:
+  spatial_resolution: "1 unit = 1 value (comunas CABA + partidos AMBA)"
+  temporal_coverage: "2017-2025 pooled; public three-year rolling windows"
+  validation: "Tasas por 100.000 personas-año para homicidio doloso, tentativa, lesiones, violencia sexual y robo agravado; cobertura completa exigida en las 55 unidades AMBA"
+coverage_note: "Registros oficiales de violencia, no victimización total ni riesgo individual"
+limitations:
+  - "Eras taxonómicas SNIC explícitas: código sexual agrupado 11 hasta 2022 y códigos hijos 11_1-11_5 desde 2023, nunca ambos en el mismo año."
+  - "Las prácticas de registro difieren por jurisdicción y año."
+methodology_doc: docs/community_violence_methodology.md
+color: sequential

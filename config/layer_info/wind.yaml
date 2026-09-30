@@ -1,0 +1,29 @@
+schema_version: 1
+layer_id: wind
+webapp_keys: [wind]
+source:
+  name: "ERA5-Land hourly reanalysis — 10 m wind"
+  provider: "ECMWF / Copernicus Climate Change Service, via Google Earth Engine"
+  url: "https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_HOURLY"
+  license: "Copernicus Open Access"
+citation:
+  authors: "Muñoz-Sabater, Joaquín and others"
+  year: 2021
+  title: "ERA5-Land: a state-of-the-art global reanalysis dataset for land applications"
+  journal: "Earth System Science Data"
+  doi: "10.5194/essd-13-4349-2021"
+  paper: "Muñoz-Sabater et al. (2021) Earth System Science Data"
+  bibtex_key: munozsabater2021
+specs:
+  spatial_resolution: "~11 km (0.1°)"
+  temporal_coverage: "2015-2024 (hourly, aggregated annual)"
+  validation: "Viento a 10 m de ERA5 (media, fracción de calma, dirección dominante); umbral de calma 2 m/s derivado del estándar WMO"
+limitations:
+  - "Capa modificadora de exposición (ventilación), no un contaminante: debe modelarse junto a PM2.5/NO2, no como exposición independiente."
+  - "~11 km no resuelve cañones urbanos ni efectos locales de rugosidad."
+methodology_doc: docs/wind_methodology.md
+color: sequential
+countries:
+  CL:
+    specs:
+      validation: "Climatología regional consistente: 1.0-2.0 m/s en el valle de Santiago con brisa montaña-valle; umbral de calma 2 m/s"

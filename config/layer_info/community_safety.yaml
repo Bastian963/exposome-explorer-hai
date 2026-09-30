@@ -1,0 +1,21 @@
+schema_version: 1
+layer_id: community_safety
+webapp_keys: [community_safety]
+source:
+  name: "DNEC SAT Propiedad + estimaciones de población INDEC"
+  provider: "Dirección Nacional de Estadística Criminal (Argentina) + INDEC"
+  url: "https://www.argentina.gob.ar/seguridad/estadisticascriminales/bases-de-datos"
+  license: "Open government data (Argentina)"
+citation:
+  doi_status: not_assigned
+  paper: "DNEC, Sistema de Alerta Temprana (SAT) Propiedad 2017-2024; INDEC estimaciones de población por departamento/partido/comuna"
+specs:
+  spatial_resolution: "1 unit = 1 value (comunas CABA + partidos AMBA)"
+  temporal_coverage: "2017-2024 pooled; annual values retained"
+  validation: "Conteos SAT por departamento/mes/categoría sumados por unidad y año; denominadores INDEC con serie base-2022 desde 2022"
+coverage_note: "Mide delitos registrados contra la propiedad, no victimización total; el contexto territorial no implica riesgo individual"
+limitations:
+  - "Las prácticas de registro y denuncia varían entre jurisdicciones y años."
+  - "Exposición contextual agregada: sin interpretación causal ni clínica."
+methodology_doc: docs/argentina_criminal_statistics_assessment.md
+color: sequential

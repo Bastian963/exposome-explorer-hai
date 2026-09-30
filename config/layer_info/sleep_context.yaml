@@ -1,0 +1,19 @@
+schema_version: 1
+layer_id: sleep_context
+webapp_keys: []
+source:
+  name: "Contexto sueño-circadiano (compuesto ALAN + noches cálidas + vulnerabilidad)"
+  provider: "BrainLat exposome (derived layer)"
+  url: "(derived layer, see methodology)"
+  license: "(derived)"
+citation:
+  doi_status: not_assigned
+  paper: "BrainLat sleep-circadian context methodology"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "Composite of source-layer periods"
+  validation: "Condiciones ambientales y sociales plausiblemente ligadas a peor sueño; ENS/ENUT se citan como contexto regional, no como validación comunal"
+limitations:
+  - "No es una estimación directa de duración ni calidad de sueño; ningún dato clínico de sueño se imputa a nivel comunal."
+methodology_doc: docs/sleep_context_methodology.md
+color: sequential

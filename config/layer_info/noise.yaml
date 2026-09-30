@@ -1,0 +1,18 @@
+schema_version: 1
+layer_id: noise
+webapp_keys: [noise]
+source:
+  name: "MMA 2024 — Minuta Mapa de Ruido Gran Santiago Urbano 2023"
+  provider: "Ministerio del Medio Ambiente de Chile"
+  url: "https://ruido.mma.gob.cl/"
+  license: "Public government report / source-specific terms"
+citation:
+  doi_status: not_assigned
+  paper: "Ministerio del Medio Ambiente, Mapa de Ruido Gran Santiago Urbano 2023"
+specs:
+  spatial_resolution: "1 commune = 1 value; model covers 35 GSU communes"
+  temporal_coverage: "2023 traffic-noise model"
+  validation: "Traffic-noise model over 792 km² and 13,590 km of road network; 17 rural/periurban communes are outside the GSU model and flagged as no estimate"
+coverage_note: "noise_in_gsu_map=0 means no modelled estimate outside the GSU perimeter, not zero environmental noise"
+methodology_doc: docs/noise_methodology.md
+color: sequential

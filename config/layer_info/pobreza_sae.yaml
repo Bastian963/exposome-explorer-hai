@@ -1,0 +1,18 @@
+schema_version: 1
+layer_id: pobreza_sae
+webapp_keys: [poverty]
+source:
+  name: "Estimaciones de Pobreza Comunal SAE, MDSF"
+  provider: "Ministerio de Desarrollo Social y Familia (MDSF) - CEPAL"
+  url: "https://observatorio.ministeriodesarrollosocial.gob.cl/pobreza-comunal"
+  license: "Open (official government publication)"
+citation:
+  doi_status: not_assigned
+  paper: "Estimaciones Comunales de Pobreza por Ingresos en Chile Mediante Métodos de Estimación en Áreas Pequeñas — Informe Metodológico, MDSF-CEPAL, 2021"
+specs:
+  spatial_resolution: "1 commune = 1 value"
+  temporal_coverage: "Ingresos: 2017, 2020, 2022, 2024. Multidimensional (IPM): 2017, 2022, 2024."
+  validation: "Fay-Herriot small-area estimation blending direct CASEN estimates with a synthetic model on administrative/census covariates, re-fit independently each vintage. All 52 RM communes covered in every published year."
+coverage_note: "El MDSF advierte que las estimaciones SAE no son comparables entre años distintos (modelo y covariables se reajustan cada vintage); además, 2024 incorpora una canasta básica actualizada, produciendo un salto de nivel en la serie de ingresos. Una minoría de comunas cada año recibe solo estimación sintética (sin dato directo de CASEN): ver pobreza_ing_sae_type_<año> / pobreza_multi_sae_type_<año>. See docs/pobreza_sae_methodology.md."
+methodology_doc: docs/pobreza_sae_methodology.md
+color: sequential
