@@ -172,6 +172,7 @@ studies:
     bundle: webapp/public/data/v1/tz/hai/hai_wards
     place: "Hai District, Tanzania"
     scope: "17 wards of Hai District, Kilimanjaro Region, northern Tanzania"
+    attribution: "Ward boundaries: Tanzania National Bureau of Statistics (NBS), 2022 Population and Housing Census. Please cite NBS when using them."
     unit: ward
     units: wards
     status: false

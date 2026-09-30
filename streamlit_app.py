@@ -177,6 +177,8 @@ st.caption(
     f"{ctx['study']['scope']}. Click the map to read the value of every active layer at that point. "
     "Rasters show native pixels; values come from the native data."
 )
+if ctx["study"].get("attribution"):
+    st.caption(ctx["study"]["attribution"])
 map_col, info_col = st.columns([3, 2])
 with map_col:
     fmap = build_map(ctx, study, selected, opacity, basemap)
